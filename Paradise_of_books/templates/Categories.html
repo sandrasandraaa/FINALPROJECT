@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'images/books.png' %}" height="500px" width="100%;"   >
+</div>
+    <div class="container-fluid mt-4" >
+    <h2 class="text-center"><b >LIST OF BOOK GENRES</b></h2>
+    <P style="line-height:1.8;text-align:justify;font-size:18px;">If you consider the thousands of different books available in the world, the adage, “So many books, so little time” takes on a completely new meaning. In fact, just the genres and sub-genres are so many that they are impossible to list down.
+All book lovers have their own favorite genre — in fact, multiple favorite genres. In all honesty, there are so many genres to choose from, that there are many who have a preferred genre for every mood.
+Readers of specific book genres have expectations you’ll want to meet if you want them to enjoy your book and recommend it to others.
+You also want readers to see your book’s cover and know it’s the genre they want.
+So, knowing your book’s genre not only helps with marketing. It can make all the difference in your writing career.
+  </P>  </div>
+<center><div class="container-fluid mt-4 " >
+<div class="row" >
+    {% for i in c %}
+  <div class="col-sm-3"><br><br>
+<div class="card" style="width: 19rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="..." style="height:170px;">
+  <div class="card-body">
+    <h5 class="card-title"><b>{{i.name}}</b></h5>
+    <p class="card-text">{{i.desc}}</p>
+    <a href="{% url 'books:allproducts' i.name %}" class="btn btn-success">See Books</a>
+</div>
+</div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+    </center>
+<br><br><br>
+
+<img src="{% static 'images/-Quote1.jpg' %} " style="margin-left:200px;" height="300px;" width="500px;" >&nbsp;&nbsp;&nbsp;<br><br><br>
+<img src="{% static 'images/quote3.png' %}" style="margin-left:500px;" height="300px;" width="500px;">&nbsp;&nbsp;&nbsp;<br><br><br>
+<img src="{% static 'images/Quote-2.jpg' %}" style="margin-left:700px;margin-bottom:130px;" height="300px;" width="500px;">&nbsp;&nbsp;&nbsp;
+
+{% endblock %}
+

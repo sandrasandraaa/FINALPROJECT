@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<center>
+    <h1 class="mt-5" style="color:green;">{{m}}<i class="fa-solid fa-circle-check"></i></h1>
+    <a href="{% url 'books:allcategories' %}" class="btn btn-warning">Continue Shopping</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'cart:orderview' %}" class="btn btn-warning">View Order Details</a>
+</center>
+
+{% endblock %}

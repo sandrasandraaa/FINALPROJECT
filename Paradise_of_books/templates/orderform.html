@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h1><b>Delivery Address and Payment </b></h1><br>
+<form method="POST" class=" text-primary">
+    {% csrf_token %}
+    <div class="mb-3 col-6 " >
+        <label class="form-label"><b style="font-size:24px;">Delivery Address</b></label>
+        <input type="text" class="form-control" name="a" placeholder="Enter address">
+    </div>
+    <div class="mb-3 col-6" >
+        <label class="form-label"><b style="font-size:24px;">Mobile Number</b></label>
+        <input type="number" class="form-control" name="p" placeholder="Enter phone number">
+    </div>
+    <div class="mb-3 col-6" >
+        <label class="form-label"><b style="font-size:24px;">Account Number</b></label>
+        <input type="number" class="form-control" name="ac" placeholder="Enter account number">
+    </div>
+     <div class="mb-3 col-3">
+        <input type="submit" class="form-control" >
+    </div>
+</form>
+</center>
+{% endblock %}

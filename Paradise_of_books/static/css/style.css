@@ -1,0 +1,13 @@
+body
+{font-family: 'Philosopher', sans-serif;}
+.footer
+{height:50px;
+width:100px;
+background-color:black;
+color:black;
+left:0;
+bottom:0;
+text-align:center;
+}
+p
+{line-height:25px;}

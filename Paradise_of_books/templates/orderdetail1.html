@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<center>
+    <h1 class="mt-5">{{mm}}</h1>
+    <a href="{% url 'books:allcategories' %}" class="btn btn-warning">Continue Shopping</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+</center>
+
+
+{% endblock %}

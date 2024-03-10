@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center>
+<h2><b>Customer Name : {{user.username}}</b></h2>
+</center>
+<table class="table table-bordered  mt-3 " style="margin-bottom:160px;">
+    {% for i in o %}
+    <tr>
+        <td><img src="{{i.product.image.url}}" style="height:250px;"> </td>
+<!--        <td class="fw-bold" style="color:white;">{{i.user.username}}</td>-->
+        <td class="fw-bold" style="color:dark;">{{i.address}}<br>
+            {{i.phone}}<br>
+            {{i.product}}<br>
+
+            <b>{{i.product.price}}</b><br>
+            {{i.date_ordered}}<br>
+            {{i.delivery_status}}
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+{% endblock %}
+

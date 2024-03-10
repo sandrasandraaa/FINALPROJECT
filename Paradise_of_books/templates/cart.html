@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if not c %}
+<div class="container  ">
+    <h1 class="text-center"><b>Cart is Empty</b></h1><br><center>
+    <a href="{% url 'books:allcategories' %}" class="btn btn-primary">Continue Shopping</a></center>
+</div>
+{% else %}
+<br>
+<div class="container-fluid  ">
+<div class="row">
+    <h1 class="text-center text-dark"><i class="fa-solid fa-cart-plus" style="color:black;"></i><b> SHOPPING CART</b></h1>
+    <div class="col-sm-6 border border-4 border-dark">
+<!--        border border-4 border-primary-->
+        <table class="table table-borderd text-dark" >
+           <tr><th class="text-center text-primary" colspan="5"><b>Cart Items</b></th></tr>
+            {% for i in c %}
+            <tr>
+                <td><img src="{{i.product.image.url}}" height="170px" width="170px"></td>
+               <td><b>{{i.product.name}}</b></td>
+                <td><b>Product Id: {{i.product.id}}</b><br>
+                <b>Product Price: {{i.product.price}}</b><br>
+                <b>Quantity: {{i.quantity}}*{{i.product.price}}</b>
+                </td>
+                <td><b>Subtotal: {{i.subtotal}}</b></td>
+                <td>
+                    {% if i.quantity < i.product.stock %}
+                    <a href="{% url 'cart:addtocart' i.product.name %}"><i class="fa-solid fa-square-plus text-primary" style="font-size:25px;"></i></a>
+                   <a href="{% url 'cart:remove' i.product.name  %}"><i class="fa-solid fa-square-minus text-primary" style="font-size:25px;" ></i></a>
+                   <a href="{% url 'cart:delete' i.product.name  %}"><i class="fa-solid fa-trash text-primary" style="font-size:25px;"></i></a></td>
+                {% else %}
+                <a href="{% url 'cart:remove' i.product.name  %}"><i class="fa-solid fa-square-minus text-primary" style="font-size:25px;" ></i></a>
+                   <a href="{% url 'cart:delete' i.product.name  %}"><i class="fa-solid fa-trash text-primary" style="font-size:25px;"></i></a>
+
+            </tr>{% endif %}
+            {% endfor %}
+
+        </table>
+    </div>
+    <div class="col-sm-5 border border-4 border-dark">
+        <table class="table table-borderd text-dark">
+          <tr>  <th class="text-center text-primary" colspan="4"><b>Check Out</b></th></tr>
+            <tr><td class="text-center"><b>Total: {{total}}</b></td></tr>
+        </table>
+       <center> <a href="{% url 'cart:orderform' %}" class="btn btn-primary ">Place Order</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'books:allcategories' %}" class="btn btn-primary">Continue Shopping</a></center>
+    </div>
+</div></div>
+{% endif %}
+
+{% endblock %}
